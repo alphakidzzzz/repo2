@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You</title>
+    <style>
+        /* Floating animations */
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 0.5; }
+            50% { transform: translateY(-20px); opacity: 1; }
+            100% { transform: translateY(0); opacity: 0.5; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Floating shapes */
+        .floating-shape {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 182, 193, 0.8);
+            clip-path: polygon(50% 0%, 100% 35%, 82% 100%, 50% 75%, 18% 100%, 0% 35%);
+            animation: float 7s infinite ease-in-out;
+            opacity: 0.7;
+        }
+
+        .floating-shape:nth-child(1) { left: 15%; animation-delay: 0s; animation-duration: 6s; }
+        .floating-shape:nth-child(2) { left: 35%; animation-delay: 2s; animation-duration: 7s; }
+        .floating-shape:nth-child(3) { left: 55%; animation-delay: 1s; animation-duration: 5s; }
+        .floating-shape:nth-child(4) { left: 75%; animation-delay: 3s; animation-duration: 8s; }
+
+        /* Floating hearts */
+        .floating-heart {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(240, 128, 128, 0.8);
+            clip-path: path("M24.28 3.88c4.2 0 7.62 3.42 7.62 7.63 0 9.56-13.69 17.56-14.1 17.77-.2.1-.45.1-.65 0-.4-.21-14.1-8.21-14.1-17.77 0-4.21 3.41-7.63 7.62-7.63 2.25 0 4.49 1.02 6.03 2.61 1.55-1.59 3.79-2.61 6.03-2.61z");
+            animation: float 8s infinite ease-in-out, rotate 15s linear infinite;
+        }
+
+        .floating-heart:nth-child(5) { left: 25%; animation-delay: 1s; }
+        .floating-heart:nth-child(6) { left: 50%; animation-delay: 3s; }
+        .floating-heart:nth-child(7) { left: 70%; animation-delay: 2s; }
+
+        /* Body and container styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #fbc2eb, #a18cd1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(171, 102, 204, 0.4);
+        }
+
+        .letter, .special-message {
+            display: none; /* Initially hidden */
+            text-align: left;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            color: white;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .letter {
+            background-image: url('images/You should leave.jpg'); /* Path to your image */
+        }
+
+        .special-message {
+            background-image: url('images/download (1).jpg'); /* Path to your image */
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: #a18cd1;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(171, 102, 204, 0.4);
+            transition: all 0.3s;
+        }
+
+        .button:hover {
+            background-color: #fbc2eb;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating shapes -->
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden;">
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-heart"></div>
+        <div class="floating-heart"></div>
+        <div class="floating-heart"></div>
+    </div>
+
+    <!-- Main container -->
+    <div class="container">
+        <h1 style="font-size: 3rem; color: #333; margin: 10px 0;">Hey Mi Cielo ❤️</h1>
+        <p style="font-size: 1.2rem; color: #333;">I know things might feel distant right now, but I wanted to remind you of something very important...</p>
+        <p style="font-size: 3rem; color: #333; animation: pulse 1s infinite;">You are my everything!</p>
+        <p style="font-size: 1.2rem; color: #333;">I miss the way you make my world brighter, and I just hope this little message brings a smile to your face.</p>
+        <a href="javascript:void(0);" onclick="showLetter()" class="button">Take Me Back?</a>
+        <a href="javascript:void(0);" onclick="showMessage()" class="button">You Are Special</a>
+    </div>
+
+    <!-- Letter -->
+    <div class="letter">
+        <p style="font-size: 1.2rem; margin: 15px 0;">Dearest Love,</p>
+        <p style="font-size: 1.2rem; margin: 15px 0;">From the moment we first met, my world was painted in colors I never knew existed. You brought joy, warmth, and light into my life in ways I can’t even begin to describe.</p>
+        <p style="font-size: 1.2rem; margin: 15px 0;">I know things haven’t been perfect, and I’ve made mistakes. But every beat of my heart reminds me that you are the one I want to share my life with. Every laugh, every smile, every tear — I want them all with you.</p>
+        <p style="font-size: 1.2rem; margin: 15px 0;">So here I am, laying my heart bare, hoping you’ll see how deeply I care for you. Let’s write the next chapter of our story together, filled with love, laughter, and endless adventures.</p>
+        <p style="font-size: 1.2rem; margin: 15px 0;">Forever yours,</p>
+        <p style="font-size: 1.2rem; margin: 15px 0;"><strong>Dein Mond❤️.</strong></p>
+    </div>
+
+    <!-- Special message -->
+    <div class="special-message">
+        <p>You are so special to me. I never expected to meet someone like you, but here you are, making my life brighter and more beautiful every single day. ❤️</p>
+        <p>Thank you for being the incredible person you are. 💕</p>
+    </div>
+
+    <script>
+        function showLetter() {
+            document.querySelector('.container').style.display = 'none'; // Hide main container
+            document.querySelector('.letter').style.display = 'block'; // Show letter
+            document.querySelector('.special-message').style.display = 'none'; // Hide special message
+        }
+
+        function showMessage() {
+            document.querySelector('.container').style.display = 'none'; // Hide main container
+            document.querySelector('.letter').style.display = 'none'; // Hide letter
+            document.querySelector('.special-message').style.display = 'block'; // Show special message
+        }
+    </script>
+</body>
+</html>
